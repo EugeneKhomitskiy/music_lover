@@ -13,11 +13,17 @@ fun main() {
         println("Введите сумму покупки:")
         val sum = readLine()!!.toDouble()
 
-        val result = if (totalPrice > DISCOUNT_START && totalPrice <= DISCOUNT_START_PERCENT) {
+        /*val result = if (totalPrice > DISCOUNT_START && totalPrice <= DISCOUNT_START_PERCENT) {
             sum - DISCOUNT
         } else if (totalPrice > DISCOUNT_START_PERCENT) {
             sum - ((sum * DISCOUNT_PERCENT) * 100).roundToInt() /100
-        } else sum
+        } else sum*/
+
+        val result = when (totalPrice) {
+            in DISCOUNT_START..DISCOUNT_START_PERCENT -> sum - DISCOUNT
+            in DISCOUNT_START_PERCENT..totalPrice -> sum - ((sum * DISCOUNT_PERCENT) * 100).roundToInt() / 100
+            else -> sum
+        }
 
         val result1 = if (totalPrice != 0.00) result - (result * DISCOUNT_MOUNT) else result
 
