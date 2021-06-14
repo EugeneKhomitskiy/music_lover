@@ -8,26 +8,18 @@ const val DISCOUNT_MOUNT = 0.01
 
 fun main() {
     var totalPrice = 0.0
-    var isRegularCustomer = false
 
     while (true) {
         println("Введите сумму покупки:")
         val sum = readLine()!!.toDouble()
 
-        /*val result = if (totalPrice > DISCOUNT_START && totalPrice <= DISCOUNT_START_PERCENT) {
+        val result = if (totalPrice > DISCOUNT_START && totalPrice <= DISCOUNT_START_PERCENT) {
             sum - DISCOUNT
         } else if (totalPrice > DISCOUNT_START_PERCENT) {
-            sum - ((sum * DISCOUNT_PERCENT) * 100).roundToInt() / 100
-        } else sum*/
+            sum - ((sum * DISCOUNT_PERCENT) * 100).roundToInt() /100
+        } else sum
 
-        val result = when (totalPrice) {
-            in DISCOUNT_START..DISCOUNT_START_PERCENT -> sum - DISCOUNT
-            in DISCOUNT_START_PERCENT..totalPrice -> sum - ((sum * DISCOUNT_PERCENT) * 100).roundToInt() / 100
-            else -> sum
-        }
-        if (totalPrice != 0.0) isRegularCustomer = true
-
-        val result1 = if (isRegularCustomer) result - (result * DISCOUNT_MOUNT) else result
+        val result1 = if (totalPrice != 0.00) result - (result * DISCOUNT_MOUNT) else result
 
         totalPrice += result1
 
