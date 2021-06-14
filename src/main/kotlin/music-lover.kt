@@ -17,7 +17,7 @@ fun main() {
             sum - DISCOUNT
         } else if (totalPrice > DISCOUNT_START_PERCENT) {
             sum - ((sum * DISCOUNT_PERCENT) * 100).roundToInt() /100
-        } else sum*/
+        } else sum */
 
         val result = when (totalPrice) {
             in DISCOUNT_START..DISCOUNT_START_PERCENT -> sum - DISCOUNT
