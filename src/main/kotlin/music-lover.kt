@@ -8,6 +8,7 @@ const val DISCOUNT_MOUNT = 0.01
 
 fun main() {
     var totalPrice = 0.0
+    var isRegularCustomer = false
 
     while (true) {
         println("Введите сумму покупки:")
@@ -25,7 +26,9 @@ fun main() {
             else -> sum
         }
 
-        val result1 = if (totalPrice != 0.00) result - (result * DISCOUNT_MOUNT) else result
+        if (totalPrice != 0.0) isRegularCustomer = true
+
+        val result1 = if (isRegularCustomer) result - (result * DISCOUNT_MOUNT) else result
 
         totalPrice += result1
 
